@@ -1,0 +1,26 @@
+{
+  "title": "Why Kaniko ? Getting started with it.",
+  "description": "Kaniko is a tool to build Docker image without using the Docker Daemon, thus making available Docker builds directly inside K8S Cluster.",
+  "details": {
+    "steps": [
+      {
+        "title": "Build a Docker image locally",
+        "text": "step1.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "intro": {
+    "text": "intro.md",
+    "code": "foreground.sh"
+  },
+  "environment": {
+    "hideintro": true,
+    "uilayout": "terminal-terminal"
+  },
+  "backend": {
+    "imageid": "kubernetes-cluster-running:1.18"
+  }
+}
