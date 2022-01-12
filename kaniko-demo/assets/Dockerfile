@@ -1,2 +1,2 @@
-FROM alpine
-CMD ['ls']
+FROM busybox
+CMD ["/bin/echo", "Yolo"]
