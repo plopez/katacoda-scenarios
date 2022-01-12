@@ -8,13 +8,13 @@
         "text": "step1.md"
       }
     ],
+    "intro": {
+      "text": "intro.md",
+      "code": "foreground.sh"
+    },
     "finish": {
       "text": "finish.md"
     }
-  },
-  "intro": {
-    "text": "intro.md",
-    "code": "foreground.sh"
   },
   "environment": {
     "hideintro": true,
