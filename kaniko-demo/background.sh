@@ -1,2 +1,2 @@
 #/bin/bash
-echo 'export PS1="wescale> "' >> ~/.bashrc
+#echo 'export PS1="wescale> "' >> ~/.bashrc
