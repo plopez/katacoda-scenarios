@@ -5,12 +5,12 @@ You buils them locally, using the Docker Daemon. And everything if fine as long 
 
 Everything starts with a very simple Dockerfile :
 
-`cat Dockerfile\n\n'`{{execute}}
+`cat Dockerfile`{{execute}}
 
 First, we build it :
-`docker build -ti my-super-image .\n\n'`{{execute}}
+`docker build -t my-super-image .`{{execute}}
 
 Then, we run it :
-`docker run my-super-image\n\n'`{{execute}}
+`docker run my-super-image`{{execute}}
 
 Yeah !
