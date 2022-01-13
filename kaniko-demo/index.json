@@ -16,11 +16,6 @@
     "finish": {
       "text": "finish.md"
     },
-    "assets": {
-        "host01": [
-            {"file": "Dockerfile", "target": "/root", "chmod": "+x"}
-          ]
-        }
   },
   "environment": {
     "uilayout": "terminal"
