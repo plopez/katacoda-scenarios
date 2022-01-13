@@ -1,2 +1,3 @@
 FROM busybox
-CMD ["/bin/echo", "Yolo"]
+
+CMD ["/bin/echo", "It is alive !!!"]

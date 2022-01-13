@@ -1,8 +1,16 @@
-# Heading for Step 1
+# Building a container locally
 
-This is some text.
+This is the baseline when you work with containers.
+You buils them locally, using the Docker Daemon. And everything if fine as long as you do it on your own computer.
 
-Here's a single line of runnable code:
+Everything starts with a very simple Dockerfile :
 
-`printf 'Hello, world!\n\n'`{{execute}}
+`cat Dockerfile\n\n'`{{execute}}
 
+First, we build it :
+`docker build -ti my-super-image .\n\n'`{{execute}}
+
+Then, we run it :
+`docker run my-super-image\n\n'`{{execute}}
+
+Yeah !
