@@ -56,9 +56,7 @@ Then, it is a major security threat : accessing docker daemon from within a cont
 
 Want to see it by yourself ? A pod is running a container quoting the sitcom *Friends*
 You can display its logs in a second tab :
-```sh
-kubectl logs -f friends
-```{{execute T2}}
+`kubectl logs -f friends`{{execute T2}}
 
 Go back to the first tab. You can find the running container by querying the Docker Daemon, through the socket :
 `docker ps --filter="ancestor=plopezfr/friends-quotes:1.0"`{{execute T1}}
