@@ -9,9 +9,9 @@ But why is there a need for another machine / service, if we plan to run our con
 There is an official Docker image, so let's use it.
 
 First we create a pod running docker, and we add a sleep command to have time to enter it :
-`cat << EOF > docker.yaml
+```sh
+cat << EOF > docker.yaml
 ---
-
 apiVersion: v1
 kind: Pod
 metadata:
@@ -23,7 +23,7 @@ spec:
     args: ["sleep", "10000"]
   restartPolicy: Never
 EOF
-`{{execute}}
+```{{execute}}
 
 and run it on K8S :
 
