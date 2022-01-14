@@ -29,15 +29,18 @@ and run it on K8S :
 
 `kubectl apply -f docker.yaml`{{execute}}
 
+We wait for the pod to be up and running
+`kubectl wait --for condition=containersready pod docker`{{execute}}
 Then, we exevute a shell into the image
-`kubectl wait --for condition=containersready -f docker.yaml pod docker`{{execute}}
 `kubectl exec -ti docker -- sh`{{execute}}
 
 and we try to build our image inside the containers
-`cat << EOF > Dockerfile
+```sh
+cd /tmp
+cat << EOF > Dockerfile
 FROM alpine
 CMD ["/bin/echo", "It is alive !!!"]
 EOF
-`{{execute}}
+```{{execute}}
 
 `docker build -t my-super-image .`{{execute}}
