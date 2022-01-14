@@ -20,7 +20,7 @@
       {
         "title": "Build a Docker on K8S, second try",
         "text": "step3.md",
-        "code": "friends.sh"
+        "courseData": "friends.sh"
       },
       {
         "title": "Build a Docker on K8S, the right way",

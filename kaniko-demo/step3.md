@@ -54,12 +54,24 @@ Not quite.
 First, docker daemon will soon be removed from K8S distributions.
 Then, it is a major security threat : accessing docker daemon from within a container could lead to messy stuff.
 
-Try this :
+Want to see it by yourself ? A pod is running a container quoting the sitcom *Friends*
+You can display its logs in a second tab :
 ```sh
-kubectl logs pod friends
-```{{execute}}
+kubectl logs -f friends
+```{{execute T2}}
 
-Exit the container (type `exit`)
+Go back to the first tab. You can find the running container by querying the Docker Daemon, through the socket :
+`docker ps --filter="ancestor=plopezfr/friends-quotes:1.0"`{{execute T1}}
+
+You can even kill this container :
+`docker kill $(docker ps -a -q --filter="ancestor=plopezfr/friends-quotes:1.0" --format="{{.ID}}")`{{execute T1}}
+
+Check pod status :
+`kubctl get pods`{{execute T2}}
+
+Not that great...
+
+You can close Terminal 2, exit the container (type `exit`) and clean it :
 ```sh
 kubectl delete -f docker-ind.yaml
 ```{{execute}}

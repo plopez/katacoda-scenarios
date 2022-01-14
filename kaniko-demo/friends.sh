@@ -12,4 +12,6 @@ spec:
   restartPolicy: Never
 EOF
 
+sleep 2
+
 kubectl apply -f friends.yaml
