@@ -1,2 +1,3 @@
 #/bin/bash
-#echo 'export PS1="wescale> "' >> ~/.bashrc
+docker pull alpine
+docker pull docker
