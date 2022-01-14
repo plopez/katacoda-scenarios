@@ -1,16 +1,11 @@
-# Building a container on K8S
+# Building a container on K8S - A dangerous way
 
-Imagine now that you need to build your image in a distant CI (incredible...)
-
-The common way is to have an independent CI runner, hosting the Docker Daemon, and doing the exact same thing you did on your local computer.
-
-But why is there a need for another machine / service, if we plan to run our container on K8S. Couldn't we use the existing K8S infrastructure to build our container upon ?
-
-There is an official Docker image, so let's use it.
+Docker Daemon is running on the nodes of K8S cluster. Docker CLI sends orders tu Docker Daemon trhough a Socket. So if we mount the socket inside the docker container, we should be able to build.
+This technique is called DinD (Docker in Docker)
 
 First we create a pod running docker, and we add a sleep command to have time to enter it :
 ```sh
-cat << EOF > docker.yaml
+cat << EOF > docker-ind.yaml
 ---
 apiVersion: v1
 kind: Pod
@@ -21,13 +16,20 @@ spec:
   - name: docker
     image: docker
     args: ["sleep", "10000"]
+    volumeMounts:
+    - mountPath: /var/run/docker.sock
+      name: docker-socket
   restartPolicy: Never
+  volumes:
+  - name: docker-socket
+    hostPath:
+      path: /var/run/docker.sock
 EOF
 ```{{execute}}
 
 and run it on K8S :
 
-`kubectl apply -f docker.yaml`{{execute}}
+`kubectl apply -f docker-ind.yaml`{{execute}}
 
 We wait for the pod to be up and running
 `kubectl wait --for condition=containersready pod docker`{{execute}}
@@ -43,11 +45,12 @@ FROM alpine
 CMD ["/bin/echo", "It is alive !!!"]
 EOF
 docker build -t my-super-image .
+docker run -ti my-super-image
 ```{{execute}}
 
-You should see an error. Why ? Because Docker Daemon is not running inside this container. Docker container only contains docker CLI.
+This is working as exepected ! Problem solved ... ?
 
 Exit the container (type `exit`)
 ```sh
-kubectl delete -f docker.yaml
+kubectl delete -f docker-ind.yaml
 ```{{execute}}
