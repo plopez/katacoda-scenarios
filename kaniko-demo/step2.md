@@ -31,6 +31,7 @@ and run it on K8S :
 
 We wait for the pod to be up and running
 `kubectl wait --for condition=containersready pod docker`{{execute}}
+
 Then, we exevute a shell into the image
 `kubectl exec -ti docker -- sh`{{execute}}
 
@@ -42,4 +43,11 @@ FROM alpine
 CMD ["/bin/echo", "It is alive !!!"]
 EOF
 docker build -t my-super-image .
+```{{execute}}
+
+You should see an error. Why ? Because Docker Daemon is not running inside this container. Docker container only contains docker CLI.
+
+```sh
+exit
+kubectl delete -f docker.yaml
 ```{{execute}}
