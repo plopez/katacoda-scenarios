@@ -2,8 +2,10 @@
 PS1="wescale> "
 clear
 
-until kubectl version
+echo "Wait for K8S to be ready"
+
+(until kubectl version
 do
     echo ...
     sleep 1
-done
+done)
