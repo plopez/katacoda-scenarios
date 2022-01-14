@@ -47,7 +47,7 @@ docker build -t my-super-image .
 
 You should see an error. Why ? Because Docker Daemon is not running inside this container. Docker container only contains docker CLI.
 
+Exit the container (type `exit`{{execute}})
 ```sh
-exit
 kubectl delete -f docker.yaml
 ```{{execute}}
