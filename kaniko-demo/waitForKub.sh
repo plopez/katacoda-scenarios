@@ -4,4 +4,4 @@ clear
 
 echo "Wait for K8S to be ready"
 
-sleep 1; wait.sh
+sleep 1; ./wait.sh
