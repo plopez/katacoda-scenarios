@@ -6,7 +6,7 @@ You buils them locally, using the Docker Daemon. And everything if fine as long 
 Everything starts with a very simple Dockerfile :
 
 `cat << EOF > Dockerfile
-FROM busybox
+FROM alpine
 CMD ["/bin/echo", "It is alive !!!"]
 EOF
 `{{execute}}
@@ -17,6 +17,6 @@ First, we build it :
 `docker build -t my-super-image .`{{execute}}
 
 Then, we run it :
-`docker run my-super-image`{{execute T2}}
+`docker run my-super-image`{{execute HOST2}}
 
 Yeah !
