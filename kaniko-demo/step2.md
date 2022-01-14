@@ -41,6 +41,5 @@ cat << EOF > Dockerfile
 FROM alpine
 CMD ["/bin/echo", "It is alive !!!"]
 EOF
+docker build -t my-super-image .
 ```{{execute}}
-
-`docker build -t my-super-image .`{{execute}}

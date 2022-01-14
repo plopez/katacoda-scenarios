@@ -10,7 +10,7 @@
       {
         "title": "Build a Docker on K8S, first try",
         "text": "step2.md",
-        "code": "foreground.sh",
+        "code": "foreground.sh"
       },
       {
         "title": "Build a Docker on K8S, second try",
