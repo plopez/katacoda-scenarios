@@ -17,6 +17,6 @@ First, we build it :
 `docker build -t my-super-image .`{{execute}}
 
 Then, we run it :
-`docker run my-super-image`{{execute HOST2}}
+`docker run my-super-image`{{execute}}
 
 Yeah !
