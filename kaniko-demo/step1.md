@@ -1,5 +1,3 @@
-# Building a container locally
-
 This is the baseline when you work with containers.
 You buils them locally, using the Docker Daemon. And everything if fine as long as you do it on your own computer.
 
