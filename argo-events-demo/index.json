@@ -5,7 +5,8 @@
     "steps": [
       {
         "title": "Build a Docker image locally",
-        "text": "step1.md"
+        "text": "step1.md",
+        "code": "waitForKub.sh",
       }
     ],
     "intro": {
