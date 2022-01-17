@@ -2,7 +2,8 @@
 
 We can now do the same thing on K8S.
 
-`cat << EOF > kaniko.yaml
+```sh
+cat << EOF > kaniko.yaml
 ---
 apiVersion: v1
 kind: Pod
@@ -15,7 +16,7 @@ spec:
     args: ["--dockerfile=/workspace/Dockerfile",
             "--context=dir://workspace",
             "--destination=docker-registry.default.svc:5000"]
-`{{execute}}
+```{{execute}}
 
 `kubectl apply -f kaniko.yaml`{{execute}}
 
