@@ -1,20 +1,6 @@
 
-On the finish page, summarize what was just learned:
-
-- 3-4 bullets
-- of what you just
-- did and learned
-
-## Table of Contents
-
-If the scenario is part of a set of related scenarios, the table of contents will appear here as a bulleted list of all the scenario titles, with links to each other.
-
-- Scenario A
-- Scenario B
-- Scenario C
+The right way of building images on K8S is to use a tool designed for ! Kaniko is one of them.
 
 ## Further Learning
 
-You could link to other learning resources here. What is a good next step for a learner who just completed this scenario?
-
-
+Kaniko can nuild images from various sources (S3, directory, git), and push them on most Docker Registries (ECR, GCR, DockerHub ...)
