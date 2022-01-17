@@ -51,6 +51,9 @@ Check that the image is created
 ```
 kubectl wait --for condition=containersready pod kaniko
 kubectl logs -f kaniko
+```{{execute}}
+
+```
 export CLUSTER_IP=$(kubectl get services docker-registry -o jsonpath='{.spec.clusterIP}')
 curl http://$CLUSTER_IP:5000/v2/_catalog
 curl http://$CLUSTER_IP:5000/v2/my-super-kaniko-image/manifests/latest
