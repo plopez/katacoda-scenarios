@@ -15,3 +15,7 @@ EOF
 sleep 2
 
 kubectl apply -f friends.yaml
+
+sleep 2
+
+kubectl apply -f registry.yaml
