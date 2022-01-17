@@ -1,4 +1,4 @@
-# The right way
+# The right way. A local first step.
 
 That is where Kaniko comes to the rescue.
 Kaniko doesn't depend on a Docker daemon and executes each command within a Dockerfile completely in userspace. This enables building container images in environments that can't easily or securely run a Docker daemon, such as a standard Kubernetes cluster.

@@ -26,6 +26,11 @@
         "title": "Build a Docker on K8S, the right way",
         "code": "foreground.sh",
         "text": "step4.md"
+      },
+      {
+        "title": "Build a Docker on K8S, the right way",
+        "code": "foreground.sh",
+        "text": "step5.md"
       }
     ],
     "intro": {
