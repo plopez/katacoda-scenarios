@@ -49,12 +49,8 @@ EOF
 
 Check that the image is created
 ```
+kubectl wait --for condition=containersready pod kaniko
+kubectl logs -f kaniko
 export CLUSTER_IP=$(kubectl get services docker-registry -o jsonpath='{.spec.clusterIP}')
 curl http://$CLUSTER_IP:5000/v2/_catalog
-```{{execute}}
-
-Load the image and run it
-```
-docker load --input my-new-super-image.tar
-docker run  my-new-super-image
 ```{{execute}}
