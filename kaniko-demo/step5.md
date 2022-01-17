@@ -2,6 +2,14 @@
 
 We can now do the same thing on K8S.
 
+`cat << EOF > Dockerfile
+FROM alpine
+CMD ["/bin/echo", "It is alive and built by Kaniko on K8S !!!"]
+EOF
+`{{execute}}
+
+`kubectl create configmap kaniko-demo --from-file=Dockerfile`{{execute}}
+
 ```sh
 cat << EOF > kaniko.yaml
 ---
@@ -16,18 +24,22 @@ spec:
     args: ["--dockerfile=/workspace/Dockerfile",
             "--context=dir://workspace",
             "--destination=docker-registry.default.svc:5000"]
+    volumeMounts:
+      - name: kaniko-dockerfile
+        mountPath: /workspace/Dockerfile
+  restartPolicy: Never
+  volumes:
+    - name: kaniko-dockerfile
+      configMap:
+        name: kaniko-demo
+EOF
 ```{{execute}}
 
 `kubectl apply -f kaniko.yaml`{{execute}}
 
-Now we will try to build our image with Kaniko, locally :
+Check that the image is created
 ```
-docker run \
-  -v $(pwd):/workspace gcr.io/kaniko-project/executor:latest \
-  --context dir:///workspace \
-  --destination=my-new-super-image:latest \
-  --no-push \
-  --tarPath=/workspace/my-new-super-image.tar
+curl http://docker-registry.default.svc:5000/v2/_catalog
 ```{{execute}}
 
 Load the image and run it
