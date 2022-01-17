@@ -17,8 +17,9 @@ Now we will try to build our image with Kaniko, locally :
 ```
 docker run \
   -v $(pwd):/workspace gcr.io/kaniko-project/executor:latest \
-  --context dist:///workspace \
-  --destination=image \
+  --context dir:///workspace \
+  --destination=my-new-super-image:latest \
+  --no-push \
   --tarPath=/workspace/my-new-super-image.tar
 ```{{execute}}
 
