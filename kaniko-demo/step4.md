@@ -5,16 +5,17 @@ Kaniko doesn't depend on a Docker daemon and executes each command within a Dock
 
 Let's give it a try.
 
-`cat << EOF > Dockerfile
+```sh
+cat << EOF > Dockerfile
 FROM alpine
 CMD ["/bin/echo", "It is alive and built by Kaniko !!!"]
 EOF
-`{{execute}}
+```{{execute}}
 
 `cat Dockerfile`{{execute}}
 
 Now we will try to build our image with Kaniko, locally :
-```
+```sh
 docker run \
   -v $(pwd):/workspace gcr.io/kaniko-project/executor:latest \
   --context dir:///workspace \
@@ -24,7 +25,7 @@ docker run \
 ```{{execute}}
 
 Load the image and run it
-```
+```sh
 docker load --input my-new-super-image.tar
 docker run  my-new-super-image
 ```{{execute}}

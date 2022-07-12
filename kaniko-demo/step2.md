@@ -49,5 +49,5 @@ You should see an error. Why ? Because Docker Daemon is not running inside this 
 
 Exit the container (type `exit`)
 ```sh
-kubectl delete -f docker.yaml
+kubectl delete -f docker.yaml --force=true
 ```{{execute}}
