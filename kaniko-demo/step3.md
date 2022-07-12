@@ -57,10 +57,11 @@ Then, it is a major security threat : accessing docker daemon from within a cont
 
 Want to see it by yourself ? A pod is running a container quoting the sitcom *Friends*
 You can display its logs in a second tab :
-with Kubernetes on Docker
+
+- > with Kubernetes on Docker
 `sleep 1; kubectl logs -f friends`{{execute T2}}
 
-with Kubernetes on containerd
+- > with Kubernetes on containerd
 `sleep 1; docker logs -f friends`{{execute T2}}
 
 
@@ -70,16 +71,16 @@ Go back to the first tab. You can find the running container by querying the Doc
 You can even kill this container :
 `docker kill $(docker ps -a -q --filter="ancestor=plopezfr/friends-quotes:1.0" --format="{{.ID}}")`{{execute T1}}
 
-with Kubernetes on Docker
+- > with Kubernetes on Docker
 Check pod status :
 `kubectl get pods`{{execute T2}}
 
-with Kubernetes on containerd
-`docker ps -a | grep friends`
+- > with Kubernetes on containerd
+`docker ps -a | grep friends`{{execute T2}}
 
 Not that great...
 
 You can close Terminal 2, exit the container (type `exit`) and clean it :
 ```sh
-kubectl delete -f docker-ind.yaml
+kubectl delete -f docker-ind.yaml --force=true
 ```{{execute}}

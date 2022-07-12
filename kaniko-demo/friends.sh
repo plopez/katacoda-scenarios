@@ -11,10 +11,13 @@ spec:
     image: plopezfr/friends-quotes:1.0
   restartPolicy: Never
 EOF
+docker pull plopezfr/friends-quotes:1.0
 
 sleep 2
 
 kubectl apply -f friends.yaml
+
+ssh node01 'docker run -d --name=friends plopezfr/friends-quotes:1.0'
 
 sleep 2
 
