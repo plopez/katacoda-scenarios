@@ -16,28 +16,28 @@
       {
         "title": "Build a Docker on K8S, first try",
         "text": "step2.md",
-        "code": "waitForKub.sh"
+        "foreground": "waitForKub.sh"
       },
       {
         "title": "Build a Docker on K8S, second try",
         "text": "step3.md",
-        "courseData": "friends.sh"
+        "background": "friends.sh"
       },
       {
         "title": "Build a Docker on K8S, the right way",
-        "code": "foreground.sh",
+        "foreground": "foreground.sh",
         "text": "step4.md"
       },
       {
         "title": "Build a Docker on K8S, the right way",
-        "code": "foreground.sh",
+        "foreground": "foreground.sh",
         "text": "step5.md"
       }
     ],
     "intro": {
       "text": "intro.md",
-      "code": "foreground.sh",
-      "courseData": "background.sh"
+      "foreground": "foreground.sh",
+      "background": "background.sh"
     },
     "finish": {
       "text": "finish.md"
