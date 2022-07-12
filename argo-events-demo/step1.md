@@ -1,14 +1,17 @@
 Install Argo-Events
 
-`kubectl apply \
+```sh
+kubectl apply \
     --filename https://raw.githubusercontent.com/argoproj/argo-events/stable/manifests/install.yaml
-`{{execute}}
+```{{execute}}
 
-`kubectl --namespace argo-events apply \
+```sh
+kubectl --namespace argo-events apply \
     --filename https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/eventbus/native.yaml
-`{{execute}}
+```{{execute}}
 
-`cat << EOF > event-source.yaml
+```sh
+cat << EOF > event-source.yaml
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: EventSource
@@ -25,7 +28,7 @@ spec:
       endpoint: /devops-toolkit
       method: POST
 EOF
-`{{execute}}
+```{{execute}}
 
 First, we build it :
 `docker build -t my-super-image .`{{execute}}
