@@ -10,11 +10,12 @@ curl http://$CLUSTER_IP:5000/v2/_catalog
 
 First we create our file. For demo purpose we will store it into a config map.
 
-`cat << EOF > Dockerfile
+```sh
+cat << EOF > Dockerfile
 FROM alpine
 CMD ["/bin/echo", "It is alive and built by Kaniko on K8S !!!"]
 EOF
-`{{execute}}
+```{{execute}}
 
 `kubectl create configmap kaniko-demo --from-file=Dockerfile`{{execute}}
 
@@ -48,12 +49,12 @@ EOF
 `kubectl apply -f kaniko.yaml`{{execute}}
 
 Check that the image is created
-```
+```sh
 kubectl wait --for condition=containersready pod kaniko
 kubectl logs -f kaniko
 ```{{execute}}
 
-```
+```sh
 export CLUSTER_IP=$(kubectl get services docker-registry -o jsonpath='{.spec.clusterIP}')
 curl http://$CLUSTER_IP:5000/v2/_catalog
 curl http://$CLUSTER_IP:5000/v2/my-super-kaniko-image/manifests/latest

@@ -1,4 +1,4 @@
-#/bin/bash
+#!/usr/bin/env bash
 cat << EOF > friends.yaml
 ---
 apiVersion: v1
